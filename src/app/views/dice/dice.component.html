@@ -1,0 +1,45 @@
+<div class="container">
+  <form [formGroup]="diceForm"
+    class="flex flex-col border-r-2  desktop:w-128 laptop:w-128 my-5 justify-center align-middle p-10 shadow-md border rounded-md border-gray-500">
+    <label for="sims">Número de simulaciones</label>
+    <input formControlName="simulations" class="number"
+      class="border rounded border-blue-600 focus:border-sky-400 focus:outline-none px-2 py-1" id="sims">
+    <label for="nmj">Cantidad de Juegos</label>
+    <input formControlName="nmj" class="number"
+      class="border rounded border-blue-600 focus:border-sky-400 focus:outline-none px-2 py-1" id="nmj">
+    <label for="pcj">Ganancia del Jugador</label>
+    <input formControlName="pcj" class="number"
+      class="border rounded border-blue-600 focus:border-sky-400 focus:outline-none px-2 py-1" id="pcj">
+    <label for="cj">Costo del juego</label>
+    <input formControlName="cj" class="number"
+      class="border rounded border-blue-600 focus:border-sky-400 focus:outline-none px-2 py-1" id="cj">
+    <button class="px-2 py-1 my-2 bordered rounded-sm border-blue-400 bg-blue-700 text-white"
+      (click)="calcular()">Calcular</button>
+  </form>
+
+  <section id="res" *ngIf="calculated"
+    class="flex flex-col align-middle items-center border border-black rounded-md shadow-md   desktop:w-128 laptop:w-128 h-96 overflow-auto  px-2">
+    <span>Gneta = {{result.gneta.toFixed(2)}}</span>
+    <span>PJGC = {{result.pgjc.toFixed(2)}}%</span>
+    <span>JGC = {{result.jgc.toFixed(2)}}</span>
+    <div class="flex flex-col items-center justify-center">
+      <table class="table my-3 ">
+        <thead class="bg-blue-600  text-white">
+          <th class="py-1 px-4 first:border-l first:rounded-tl-lg border-gray "> Nro </th>
+          <th class="py-1 px-4 first:border-l last:rounded-tr-lg border-gray"> Gneta</th>
+          <th class="py-1 px-4 first:border-l last:rounded-tr-lg border-gray"> PJGC</th>
+          <th class="py-1 px-4 first:border-l last:rounded-tr-lg border-gray"> JGC</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let res of results; index as i">
+            <td class="text-center border first:border-r-0">{{i + 1}}</td>
+            <td class="text-center border first:border-r-0">{{res.gneta}}</td>
+            <td class="text-center border first:border-r-0">{{res.pgjc.toFixed(2) }}%</td>
+            <td class="text-center border first:border-r-0">{{res.jgc}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</div>

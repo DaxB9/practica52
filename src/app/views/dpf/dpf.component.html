@@ -1,0 +1,21 @@
+<div class="container">
+    <form [formGroup]="dpfForm"
+        class="flex flex-col border-r-2 desktop:w-128 laptop:w-128 my-5 justify-center align-middle p-10 shadow-md border rounded-md border-gray-500">
+        <label for="int">Tasa de interés</label>
+        <input formControlName="i" class="number"
+            class="border rounded border-blue-600 focus:border-sky-400 focus:outline-none px-2 py-1" id="int">
+        <label for="time">Tiempo de deposito</label>
+        <input formControlName="years" class="number"
+            class="border rounded border-blue-600 focus:border-sky-400 focus:outline-none px-2 py-1" id="time">
+        <label for="capital">Capital</label>
+        <input formControlName="k" class="number"
+            class="border rounded border-blue-600 focus:border-sky-400 focus:outline-none px-2 py-1" id="capital">
+        <button class="px-2 py-1 my-2 bordered rounded-sm border-blue-400 bg-blue-700 text-white"
+            (click)="calcular()">Calcular</button>
+    </form>
+
+    <section id="res"
+        class="flex flex-col align-middle justify-center items-center border container rounded-md shadow-md px-2">
+        <span>k = {{result.toFixed(2)}}</span>
+    </section>
+</div>

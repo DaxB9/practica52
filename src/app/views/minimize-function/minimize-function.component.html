@@ -1,0 +1,14 @@
+<div class="container">
+  <form [formGroup]="minimizeForm"
+    class="flex flex-col border-r-2  desktop:w-128 laptop:w-128 my-5 justify-center align-middle p-10 shadow-md border rounded-md border-gray-500">
+    <label for="it">Numero de Iteraciones</label>
+    <input formControlName="iterations" class="number"
+      class="border rounded border-blue-600 focus:border-sky-400 focus:outline-none px-2 py-1" id="it">
+    <button class="px-2 py-1 my-2 bordered rounded-sm border-blue-400 bg-blue-700 text-white"
+      (click)="calcular()">Calcular</button>
+  </form>
+  <section *ngIf="calculated"
+    class="flex flex-col items-center justify-center py-3 border rounded-md border-violet-600 shadow-xl">
+    <span class="">Z = {{result.z}} X1 = {{result.x1}} X2 = {{result.x2}} X3 = {{result.x3}}</span>
+  </section>
+</div>

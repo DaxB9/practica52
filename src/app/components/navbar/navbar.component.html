@@ -1,0 +1,19 @@
+<nav class="bg-blue-500 h-14 flex flex-row px-2 items-center shadow-md text-xl">
+  <section class="w-full flex justify-evenly items-stretch">
+   <a routerLink="/home"> 
+    <h1 class="text-blue-50 font-bold">Simulación</h1>
+   </a>
+    <select (change)="navigate()" [(ngModel)]="route" [value]="route"
+      class="w-64 px-3 bg-blue-600 focus:outline-none border border-gray-50 rounded-md text-white text-sm ">
+      <option selected value="home" [value]="'home'">Inicio
+      </option>
+      <option value="coin">JuegoDeMoneda</option>
+      <option value="dpf">DepositoPlazoFijo</option>
+      <option value="minimize">Maximizar Función</option>
+      <option value="dice">JuegoDados</option>
+      <option value="article">Venta de artículos</option>
+      <option value="sugar">VentaAzúcar</option>
+      <option value="eggs">Huevos</option>
+    </select>
+  </section>
+</nav>
